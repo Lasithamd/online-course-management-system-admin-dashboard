@@ -19,9 +19,11 @@ function Login() {
         email:email,
         password:password,
       }
-      instance.post('/login',data)
+      instance.post('/user/login',data)
       .then(function(res){
-        console.log(res);
+        console.log(res.data.token);
+        localStorage.setItem('stu-login', res.data.token);
+        window.location.reload
       })
       .catch(function(error){
         console.log(error);
