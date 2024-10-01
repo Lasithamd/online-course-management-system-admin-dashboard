@@ -1,8 +1,35 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Container, Box, TextField, Button, Typography, Avatar } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { useNavigate } from "react-router-dom";
+import instance  from '../../../service/AxiosOrder';
 
 function Login() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+
+  
+  const onLogin= () =>{
+   
+    
+    if(email != '' && password != ''){
+      const data ={
+        email:email,
+        password:password,
+      }
+      instance.post('/login',data)
+      .then(function(res){
+        console.log(res);
+      })
+      .catch(function(error){
+        console.log(error);
+      });
+    }
+   
+  }
+
   return (
     <Container component="main" maxWidth="xs">
       <Box
@@ -24,7 +51,7 @@ function Login() {
           Sign In
         </Typography>
         <Box component="form" noValidate sx={{ mt: 1 }}>
-          <TextField
+          <TextField onChange={(val)=>setEmail(val.target.value)}
             margin="normal"
             required
             fullWidth
@@ -35,6 +62,7 @@ function Login() {
             autoFocus
           />
           <TextField
+            onChange={(val)=>setPassword(val.target.value)}
             margin="normal"
             required
             fullWidth
@@ -44,8 +72,8 @@ function Login() {
             id="password"
             autoComplete="current-password"
           />
-          <Button
-            type="submit"
+          <Button onClick={()=>onLogin()}
+            type="button"
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
