@@ -23,8 +23,8 @@ const TopHeader = () => {
 
         {/* Centered Menu Items */}
         <Button color="inherit" component={Link} to="/student">Student</Button>
-<Button color="inherit" component={Link} to="/course">Course</Button>
-<Button color="inherit" component={Link} to="/video">Video</Button>
+        <Button color="inherit" component={Link} to="/course">Course</Button>
+        <Button color="inherit" component={Link} to="/video">Video</Button>
 
         {/* Logout Button on the right */}
         <Button onClick={()=>logOut()} color="inherit">Logout</Button>

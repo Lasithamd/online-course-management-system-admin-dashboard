@@ -8,8 +8,15 @@ import styled from '@mui/system/styled';
 import HeaderCard from '../../components/Card/HeaderCard';
 import StudentData from "../../components/Table/Student/Student";
 import Footer from "../../components/Footer/Footer";
-
+import { useNavigate } from 'react-router-dom'; 
 function Student() {
+    const navigate = useNavigate(); // Initialize useNavigate
+
+    const handleAddStudentClick = () => {
+        
+        navigate('/student/create'); // Navigate to the create student page
+    };
+
     return (
         <>
             <TopHeader />
@@ -17,7 +24,7 @@ function Student() {
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}> 
                 <Grid size={8}>
                         <h1>Stutent</h1>
-                        <Button variant="contained">Add Student</Button>
+                        <Button onClick={handleAddStudentClick} variant="contained">Add Student</Button>
                         </Grid>  
                         <Grid size={2}>
                         <h1><HeaderCard/></h1>
