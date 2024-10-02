@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Student from './pages/Student/Student';
 import CreateStudent from './pages/Student/CreateStudent';
 import EditStudent from './pages/Student/EditStudent';
+import Course from './pages/Course/Course';
 import './App.css';
 
 function App() {
@@ -21,12 +22,12 @@ function App() {
       <Routes>
         {auth ? (
           <>
-           
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/student" element={<Student />} />
             <Route path="/student/edit/:id" element={<EditStudent />} />           
             <Route path="/" element={<Navigate to="/dashboard" />} />
             <Route path="/student/create" element={<CreateStudent />} />
+            <Route path="/course" element={<Course />} />
           </>
         ) : (
           <>
