@@ -24,7 +24,7 @@ function Course() {
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}> 
                 <Grid size={8}>
                         <h1>Course </h1>
-                        <Button onClick={handleAddStudentClick} variant="contained">Add Student</Button>
+                        <Button onClick={handleAddStudentClick} variant="contained">Add Course</Button>
                         </Grid>  
                         <Grid size={2}>
                         <h1><HeaderCard/></h1>
