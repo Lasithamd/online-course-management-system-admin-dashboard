@@ -45,6 +45,7 @@ export default function CourseData() {
         instance.get('/course')
             .then(function (res) {
                 setRows(res.data);
+              
             })
             .catch(function (error) {
                 console.log(error);
@@ -68,10 +69,10 @@ export default function CourseData() {
     };
 
     const handleEdit = (id) => {
-        navigate(`/student/edit/${id}`);
+        navigate(`/course/edit/${id}`);
     };
     const handleUpload = (id) => {
-        navigate(`/student/edit/${id}`);
+        navigate(`/course/upload/${id}`);
     };
     // Handle delete action
     const handleDelete = () => {

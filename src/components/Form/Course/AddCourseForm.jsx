@@ -6,7 +6,7 @@ import instance  from '../../../service/AxiosOrder';
 const AddCourseForm = ({ onClose }) => {
   
   const [name, setName] = useState('');
-  const [description, setPhone] = useState('');
+  const [description, setDescription] = useState('');
 
   const onSubmit =()=>{
     const course = {
@@ -43,8 +43,8 @@ const AddCourseForm = ({ onClose }) => {
       />
       <TextField
         name="description"
-        label="description"
-        onChange={(val)=>setPhone(val.target.value)}
+        label="Description"
+        onChange={(val)=>setDescription(val.target.value)}
         fullWidth
         required
         margin="normal"

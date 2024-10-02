@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Student from './pages/Student/Student';
 import CreateStudent from './pages/Student/CreateStudent';
 import EditStudent from './pages/Student/EditStudent';
+import EditCourse from './pages/Course/EditCourse';
 import CreateCourse from './pages/Course/CreateCourse';
 import Course from './pages/Course/Course';
 import './App.css';
@@ -30,6 +31,7 @@ function App() {
             <Route path="/student/create" element={<CreateStudent />} />
             <Route path="/course" element={<Course />} />
             <Route path="/course/create" element={<CreateCourse />} />
+            <Route path="/course/edit/:id" element={<EditCourse />} />    
           </>
         ) : (
           <>
