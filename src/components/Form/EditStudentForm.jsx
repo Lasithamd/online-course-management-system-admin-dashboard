@@ -94,7 +94,7 @@ const EditStudentForm = ({ id, onClose  }) => {
         margin="normal"
       />
       <Button type="button" onClick={onSubmit} variant="contained" color="primary">
-        Create Student
+        Edit Student
       </Button>
       <Button onClick={onClose} variant="outlined" color="secondary" sx={{ marginLeft: 1 }}>
         Cancel

@@ -12,7 +12,7 @@ const EditStudent = () => {
     return (
         <>
             <TopHeader />
-           <EditStudentForm id={id} />
+           <EditStudentForm id={id} onClose={() => window.history.back()} />
             <Footer />
         </>
     );
