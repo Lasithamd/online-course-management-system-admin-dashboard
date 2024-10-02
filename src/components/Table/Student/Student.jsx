@@ -53,7 +53,8 @@ export default function StudentData() {
     };
 
     const handleEdit = (id) => {
-        navigate('/student/edit/',id); 
+        
+        navigate(`/student/edit/${id}`);
        
         // Implement your edit functionality here
     };

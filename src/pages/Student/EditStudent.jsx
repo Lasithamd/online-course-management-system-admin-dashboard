@@ -1,18 +1,18 @@
 // src/pages/Student/CreateStudent.js
 import React from 'react';
-import AddStudentForm from '../../components/Form/AddStudentForm';
+import { useParams } from 'react-router-dom';
 import EditStudentForm from '../../components/Form/EditStudentForm'
 import TopHeader from '../../components/Navbar/TopHeader';
 import Footer from '../../components/Footer/Footer';
 
 const EditStudent = () => {
+    const { id } = useParams(); // Use useParams here to get the student ID from the URL
+    console.log(id); 
+    
     return (
         <>
             <TopHeader />
-            <div style={{ padding: '20px' }}>
-              
-                <EditStudentForm onClose={() => window.history.back()} /> {/* Optional: Pass a close function */}
-            </div>
+           <EditStudentForm id={id} />
             <Footer />
         </>
     );
