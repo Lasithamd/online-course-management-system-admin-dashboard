@@ -9,10 +9,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-
-  
   const onLogin= () =>{
-   
     
     if(email != '' && password != ''){
       const data ={
