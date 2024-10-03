@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useEffect} from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -40,12 +41,12 @@ export default function CourseData() {
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
-
-    React.useEffect(() => {
+const f=1;
+    useEffect(() => {
         instance.get('/course')
             .then(function (res) {
                 setRows(res.data);
-              
+
             })
             .catch(function (error) {
                 console.log(error);
@@ -76,13 +77,13 @@ export default function CourseData() {
     };
     // Handle delete action
     const handleDelete = () => {
-        console.log(studentIdToDelete)
+      
         if (studentIdToDelete) {
-            instance.delete(`/student/${studentIdToDelete}`)
+            instance.delete(`/course/${studentIdToDelete}`)
                 .then(() => {
                     // Update the rows after deletion
                     setRows(rows.filter((row) => row.id !== studentIdToDelete));
-                    console.log("Student deleted successfully");
+                    console.log("Course deleted successfully");
                 })
                 .catch((error) => {
                     console.error("Error deleting student:", error);
@@ -106,43 +107,38 @@ export default function CourseData() {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {rows
-                                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                .map((row) => (
-                                    <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
-                                        {columns.map((column) => {
-                                            const value = row[column.id];
-                                            return (
-                                                <TableCell key={column.id}>
-                                                    {column.id === 'actions' ? (
-                                                        <>
-                                                            <Button onClick={() => handleEdit(row.id)} size="small">
-                                                                <EditIcon fontSize="small" />
-                                                            </Button>
-                                                            <Button onClick={() => handleClickOpen(row.id)} size="small">
-                                                                <DeleteIcon fontSize="small" />
-                                                            </Button>
-                                                        </>
-                                                    ) : (
-                                                        value
-                                                    )}
-                                                     {column.id === 'video' ? (
-                                                        <>
-                                                           
-                                                            <Button variant="outlined" onClick={() => handleUpload(row.id)} startIcon={<VideoCameraFrontIcon />}>
+    {rows
+        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+        .map((row) => (
+            <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
+                {columns.map((column) => {
+                    const value = row[column.id];
+                    return (
+                        <TableCell key={column.id}>
+                            {column.id === 'actions' ? (
+                                <>
+                                    <Button onClick={() => handleEdit(row.id)} size="small">
+                                        <EditIcon fontSize="small" />
+                                    </Button>
+                                    <Button onClick={() => handleClickOpen(row.id)} size="small">
+                                        <DeleteIcon fontSize="small" />
+                                    </Button>
+                                </>
+                            ) : column.id === 'video' ? (
+                                <>
+<Button variant="outlined" onClick={() => handleUpload(row.id)} startIcon={<VideoCameraFrontIcon />}>
                                                             Upload
-                                                            </Button>
-                                                        </>
-                                                    ) : (
-                                                        value
-                                                    )}
-                                                </TableCell>
-                                                
-                                            );
-                                        })}
-                                    </TableRow>
-                                ))}
-                        </TableBody>
+                                                            </Button>                                    {/* You can also add logic to handle video upload if needed */}
+                                </>
+                            ) : (
+                                value
+                            )}
+                        </TableCell>
+                    );
+                })}
+            </TableRow>
+        ))}
+</TableBody>
                     </Table>
                 </TableContainer>
                 <TablePagination
@@ -161,7 +157,7 @@ export default function CourseData() {
                 <DialogTitle>Confirm Deletion</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Are you sure you want to delete this student? This action cannot be undone.
+                        Are you sure you want to delete this course? This action cannot be undone.
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
