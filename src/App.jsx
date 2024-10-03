@@ -9,6 +9,7 @@ import EditStudent from './pages/Student/EditStudent';
 import EditCourse from './pages/Course/EditCourse';
 import CreateCourse from './pages/Course/CreateCourse';
 import Course from './pages/Course/Course';
+import Videos from './pages/Video/Videos';
 import './App.css';
 import CreateVideo from './pages/Video/CreateVideo';
 
@@ -34,6 +35,8 @@ function App() {
             <Route path="/course/create" element={<CreateCourse />} />
             <Route path="/course/edit/:id" element={<EditCourse />} /> 
             <Route path="/video/create/:id" element={<CreateVideo />} />    
+            <Route path="/video" element={<Videos />} />    
+
           </>
         ) : (
           <>

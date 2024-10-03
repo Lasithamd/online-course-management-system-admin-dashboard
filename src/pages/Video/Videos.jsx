@@ -9,7 +9,8 @@ import HeaderCard from '../../components/Card/HeaderCard';
 import StudentData from "../../components/Table/Student/Student";
 import Footer from "../../components/Footer/Footer";
 import { useNavigate } from 'react-router-dom'; 
-function Video() {
+import VideoList from '../../components/Card/VideoList'
+function Videos() {
     const navigate = useNavigate(); // Initialize useNavigate
 
     const handleAddStudentClick = () => {
@@ -23,7 +24,7 @@ function Video() {
             <Container sx={{ marginTop: 3 }}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}> 
                 <Grid size={8}>
-                        <h1>Stutent</h1>
+                        <h1>Course Video</h1>
                         <Button onClick={handleAddStudentClick} variant="contained">Add Student</Button>
                         </Grid>  
                         <Grid size={2}>
@@ -32,13 +33,7 @@ function Video() {
                         
                     </Box>
                 <Box sx={{ flexGrow: 1 }}>
-                    <Grid container spacing={2}>
-
-                        <Grid size={12}>
-                            <StudentData />
-                        </Grid>
-
-                    </Grid>
+                   
                 </Box>
             </Container>
 
@@ -47,4 +42,4 @@ function Video() {
     )
 }
 
-export default Video; 
+export default Videos; 
