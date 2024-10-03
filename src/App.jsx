@@ -22,33 +22,33 @@ function App() {
     setAuth(!!token); // Simplifies the auth check
   }, []);
 
-  return (
- 
-      <Routes>
-        {auth ? (
-          <>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/student" element={<Student />} />
-            <Route path="/student/edit/:id" element={<EditStudent />} />           
-            <Route path="/" element={<Navigate to="/dashboard" />} />
-            <Route path="/student/create" element={<CreateStudent />} />
-            <Route path="/course" element={<Course />} />
-            <Route path="/course/create" element={<CreateCourse />} />
-            <Route path="/course/edit/:id" element={<EditCourse />} /> 
-            <Route path="/video/create/:id" element={<CreateVideo />} />    
-            <Route path="/video" element={<Videos />} />    
-            <Route path="/video/:id" element={<SingleVideos />} />    
-          </>
-        ) : (
-          <>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/" element={<Navigate to="/login" />} />
-          </>
-        )}
-        <Route path="*" element={<Navigate to={auth ? "/dashboard" : "/login"} />} />
-      </Routes>
   
+  return (
+    <Routes>
+      {auth ? (
+        <>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/student" element={<Student />} />
+          <Route path="/student/edit/:id" element={<EditStudent />} />           
+          <Route path="/" element={location.pathname === '/' ? <Navigate to="/dashboard" /> : <Navigate to={location.pathname} />} />
+          <Route path="/student/create" element={<CreateStudent />} />
+          <Route path="/course" element={<Course />} />
+          <Route path="/course/create" element={<CreateCourse />} />
+          <Route path="/course/edit/:id" element={<EditCourse />} /> 
+          <Route path="/video/create/:id" element={<CreateVideo />} />    
+          <Route path="/video" element={<Videos />} />    
+          <Route path="/video/:id" element={<SingleVideos />} />    
+          <Route path="/student/:id" element={<SingleVideos />} />    
+        </>
+      ) : (
+        <>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Navigate to="/login" />} />
+        </>
+      )}
+      <Route path="*" element={<Navigate to={auth ? "/dashboard" : "/login"} />} />
+    </Routes>
   );
 }
 

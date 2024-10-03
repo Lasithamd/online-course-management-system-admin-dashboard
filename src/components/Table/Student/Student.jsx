@@ -10,7 +10,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
+import SchoolIcon from '@mui/icons-material/School';
 import instance from '../../../service/AxiosOrder';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -24,6 +24,7 @@ const columns = [
     { id: 'name', label: 'Name', minWidth: 170 },
     { id: 'phone', label: 'Phone', minWidth: 100 },
     { id: 'email', label: 'Email', minWidth: 100 },
+    { id: 'course', label: 'Course', minWidth: 100 },
     { id: 'actions', label: 'Actions', minWidth: 100 }, // New actions column
 ];
 
@@ -117,6 +118,12 @@ export default function StudentData() {
                                                             <Button onClick={() => handleClickOpen(row.id)} size="small">
                                                                 <DeleteIcon fontSize="small" />
                                                             </Button>
+                                                        </>
+                                                    ) : column.id === 'course' ? (
+                                                        <>
+                                                            <Button variant="outlined" onClick={() => onAddCourse(row.id)} startIcon={<SchoolIcon />}>
+                                                                Add Course
+                                                            </Button>                                    {/* You can also add logic to handle video upload if needed */}
                                                         </>
                                                     ) : (
                                                         value
