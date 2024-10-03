@@ -10,6 +10,7 @@ import EditCourse from './pages/Course/EditCourse';
 import CreateCourse from './pages/Course/CreateCourse';
 import Course from './pages/Course/Course';
 import Videos from './pages/Video/Videos';
+import SingleVideos from './pages/Video/SingleVideos';
 import './App.css';
 import CreateVideo from './pages/Video/CreateVideo';
 
@@ -36,7 +37,7 @@ function App() {
             <Route path="/course/edit/:id" element={<EditCourse />} /> 
             <Route path="/video/create/:id" element={<CreateVideo />} />    
             <Route path="/video" element={<Videos />} />    
-
+            <Route path="/video/:id" element={<SingleVideos />} />    
           </>
         ) : (
           <>

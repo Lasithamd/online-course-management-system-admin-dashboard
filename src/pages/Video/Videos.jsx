@@ -33,7 +33,7 @@ function Videos() {
                         
                     </Box>
                 <Box sx={{ flexGrow: 1 }}>
-                   
+                   <VideoList/>
                 </Box>
             </Container>
 
@@ -41,5 +41,6 @@ function Videos() {
         </>
     )
 }
+
 
 export default Videos; 
