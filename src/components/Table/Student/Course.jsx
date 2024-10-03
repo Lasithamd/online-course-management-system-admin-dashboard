@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -41,7 +41,7 @@ export default function CourseData() {
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
-const f=1;
+   
     useEffect(() => {
         instance.get('/course')
             .then(function (res) {
@@ -73,11 +73,11 @@ const f=1;
         navigate(`/course/edit/${id}`);
     };
     const handleUpload = (id) => {
-        navigate(`/course/upload/${id}`);
+        navigate(`/video/create/${id}`);
     };
     // Handle delete action
     const handleDelete = () => {
-      
+
         if (studentIdToDelete) {
             instance.delete(`/course/${studentIdToDelete}`)
                 .then(() => {
@@ -107,38 +107,38 @@ const f=1;
                             </TableRow>
                         </TableHead>
                         <TableBody>
-    {rows
-        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-        .map((row) => (
-            <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
-                {columns.map((column) => {
-                    const value = row[column.id];
-                    return (
-                        <TableCell key={column.id}>
-                            {column.id === 'actions' ? (
-                                <>
-                                    <Button onClick={() => handleEdit(row.id)} size="small">
-                                        <EditIcon fontSize="small" />
-                                    </Button>
-                                    <Button onClick={() => handleClickOpen(row.id)} size="small">
-                                        <DeleteIcon fontSize="small" />
-                                    </Button>
-                                </>
-                            ) : column.id === 'video' ? (
-                                <>
-<Button variant="outlined" onClick={() => handleUpload(row.id)} startIcon={<VideoCameraFrontIcon />}>
-                                                            Upload
+                            {rows
+                                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                .map((row) => (
+                                    <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
+                                        {columns.map((column) => {
+                                            const value = row[column.id];
+                                            return (
+                                                <TableCell key={column.id}>
+                                                    {column.id === 'actions' ? (
+                                                        <>
+                                                            <Button onClick={() => handleEdit(row.id)} size="small">
+                                                                <EditIcon fontSize="small" />
+                                                            </Button>
+                                                            <Button onClick={() => handleClickOpen(row.id)} size="small">
+                                                                <DeleteIcon fontSize="small" />
+                                                            </Button>
+                                                        </>
+                                                    ) : column.id === 'video' ? (
+                                                        <>
+                                                            <Button variant="outlined" onClick={() => handleUpload(row.id)} startIcon={<VideoCameraFrontIcon />}>
+                                                                Upload
                                                             </Button>                                    {/* You can also add logic to handle video upload if needed */}
-                                </>
-                            ) : (
-                                value
-                            )}
-                        </TableCell>
-                    );
-                })}
-            </TableRow>
-        ))}
-</TableBody>
+                                                        </>
+                                                    ) : (
+                                                        value
+                                                    )}
+                                                </TableCell>
+                                            );
+                                        })}
+                                    </TableRow>
+                                ))}
+                        </TableBody>
                     </Table>
                 </TableContainer>
                 <TablePagination

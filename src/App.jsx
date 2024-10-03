@@ -10,10 +10,11 @@ import EditCourse from './pages/Course/EditCourse';
 import CreateCourse from './pages/Course/CreateCourse';
 import Course from './pages/Course/Course';
 import './App.css';
+import CreateVideo from './pages/Video/CreateVideo';
 
 function App() {
   const [auth, setAuth] = useState(false);
-
+  
   useEffect(() => {
     const token = localStorage.getItem('stu-login');
     setAuth(!!token); // Simplifies the auth check
@@ -31,7 +32,8 @@ function App() {
             <Route path="/student/create" element={<CreateStudent />} />
             <Route path="/course" element={<Course />} />
             <Route path="/course/create" element={<CreateCourse />} />
-            <Route path="/course/edit/:id" element={<EditCourse />} />    
+            <Route path="/course/edit/:id" element={<EditCourse />} /> 
+            <Route path="/video/create/:id" element={<CreateVideo />} />    
           </>
         ) : (
           <>
