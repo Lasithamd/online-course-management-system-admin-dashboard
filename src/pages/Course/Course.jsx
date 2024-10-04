@@ -11,7 +11,9 @@ import Footer from "../../components/Footer/Footer";
 import { useNavigate } from 'react-router-dom'; 
 function Course() {
     const navigate = useNavigate(); // Initialize useNavigate
-
+    const [id, setId]=React.useState('')
+    
+    
     const handleAddStudentClick = () => {
         
         navigate('/course/create'); // Navigate to the create student page

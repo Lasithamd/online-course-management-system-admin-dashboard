@@ -69,6 +69,9 @@ export default function StudentData() {
     const handleEdit = (id) => {
         navigate(`/student/edit/${id}`);
     };
+    const onAddCourse = (id) => {
+        navigate(`/student-course/${id}`);
+    };
 
     // Handle delete action
     const handleDelete = () => {

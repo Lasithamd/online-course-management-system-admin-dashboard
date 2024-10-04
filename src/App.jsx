@@ -13,6 +13,7 @@ import Videos from './pages/Video/Videos';
 import SingleVideos from './pages/Video/SingleVideos';
 import './App.css';
 import CreateVideo from './pages/Video/CreateVideo';
+import AddStuCourse from './pages/Student/AddStuCourse';
 
 function App() {
   const [auth, setAuth] = useState(false);
@@ -37,8 +38,10 @@ function App() {
           <Route path="/course/edit/:id" element={<EditCourse />} /> 
           <Route path="/video/create/:id" element={<CreateVideo />} />    
           <Route path="/video" element={<Videos />} />    
-          <Route path="/video/:id" element={<SingleVideos />} />    
-          <Route path="/student/:id" element={<SingleVideos />} />    
+          <Route path="/video/:id" element={<SingleVideos />} />
+          <Route path="/student-course/:id" element={<AddStuCourse />} />
+
+          
         </>
       ) : (
         <>
